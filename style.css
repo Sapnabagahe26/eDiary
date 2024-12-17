@@ -27,15 +27,14 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: var(--bg-color);
   color: var(--text-color);
   overflow: hidden;
 }
 
 .wrapper {
   position: relative;
-  width: 64rem;
-  height: 40rem;
+  width: 65rem;
+  height: 38rem;
   padding: 2rem;
   perspective: 250rem;
   animation: show-animate 2s forwards;
@@ -76,6 +75,23 @@ body {
 
 .cover.cover-right.turn {
   transform: rotateY(180deg);
+}
+
+/* BG Section */
+.background {
+  height: 100vh;
+  width: 100%;
+  background-image: url(background.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  justify-content: center;
+  align-items: center;
+}
+
+/* overlay */
+.background::before {
+  background-color: rgb(160, 152, 152);
+  position: absolute;
 }
 
 .book {
@@ -230,42 +246,8 @@ body {
   margin-bottom: 1rem;
 }
 
-.workeduc-box {
-  border-left: var(--border)
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  flex: 1 1 10rem;
-  border: var(--border);
-  border-radius: .5rem;
-  padding: .8rem .5rem 1.1rem;
-  text-align: center;
-
-}
-
-.workeduc-box .workeduc-content {
-  position: relative;
-  padding-left: 1.6rem;
-  margin-bottom: 1.2rem;
-}
-
-.workeduc-box .workeduc-content::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -0.65rem;
-  width: 1.2rem;
-  height: 1.2rem;
-  background: var(--main-color);
-  border-radius: 50%;
-}
-
-.workeduc-content .year {
-  color: var(--main-color);
-}
-
-.workeduc-content .year i{
-  margin-right: .4rem;
+.poetry-box .type {
+  display: none;
 }
 
 .number-page {
@@ -413,5 +395,3 @@ body {
   transform: translateX(-50%) scale(1);
   top: -1.8rem;
 }
-
-/*

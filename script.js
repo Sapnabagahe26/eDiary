@@ -38,6 +38,44 @@ contactMeBtn.onclick = () => {
     })
 }
 
+//create typing effect of poetry page
+function typeEffect(element, speed) {
+    var text = element.innerHTML;
+    element.innerHTML = "";
+
+    var i = 0;
+    var timer = setInterval(function() {
+        if (i < text.length) {
+            element.append(text.charAt(i));
+            element.innerHTML = text.slice(0, i + 1);
+            i++;
+        } else {
+            clearInterval(timer);
+        }
+    }, speed);
+}
+
+var speed = 30;
+var title = document.querySelector('.title');
+var p = document.querySelector('.page-front p');
+
+// Ensure `.title` exists and calculate the delay correctly
+if (title) {
+    var delay = title.textContent.length * speed + speed;
+
+    typeEffect(title, speed);
+
+    setTimeout(function () {
+        if (p) {
+            p.style.display = "inline-block";
+            typeEffect(p, speed);
+        }
+    }, delay);
+} else {
+    console.error("Element with class '.title' not found.");
+}
+
+
 //create reverse index function
 let totalPages = pages.length;
 let pageNumber = 0;
